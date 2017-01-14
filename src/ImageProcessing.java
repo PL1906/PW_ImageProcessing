@@ -141,8 +141,6 @@ public class ImageProcessing extends JFrame implements ActionListener
 			String filePath = "./files/" + fileNameInput.getText();
 			image = MarvinImageIO.loadImage(filePath);
 			backupImage = image.clone();
-			thumbnailByHeight(image.clone(), image, 500);
-			imagePanel.setImage(image);
 		}
 		
 		image.update();
