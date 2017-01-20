@@ -45,7 +45,7 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 		con.add(progressPanel, BorderLayout.NORTH);
 		con.add(imagePanel, BorderLayout.SOUTH);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
 	}
@@ -64,6 +64,7 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 			// Process each loaded file image
 			for (int i = 0; i < loadedFiles.size(); i++)
 			{
+				setProgressValue(0);
 				processImage(loadedFiles.get(i).get(), i);
 				Thread.sleep(1000);
 			}
@@ -151,7 +152,6 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 		{
 			e.printStackTrace();
 		}*/
-
 	}
 
 	private BufferedImage resizeImage(BufferedImage originalImage, int width, int height)

@@ -32,6 +32,7 @@ public class MainFrame extends JFrame implements ActionListener
 		super("Programowanie wspolbiezne - Image processing");
 		
 		threadsSelect = new JComboBox<String>(threadsString);
+		threadsSelect.setSelectedIndex(2);
 		threadsLabel = new JLabel("Threads number", SwingConstants.RIGHT);
 		startButton = new JButton("Start images processing");
 		selectButton = new JButton("Choose images");

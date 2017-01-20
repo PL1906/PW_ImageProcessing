@@ -29,7 +29,6 @@ public class ImageProcessingThread extends Thread
 	
 	public void desaturateImage()
 	{
-		mainFrame.setProgressValue(0);
 		for (int i = startWidth; i < startWidth + width; i++)
 		{
 			for (int j = startHeight; j < startHeight + height; j++)
