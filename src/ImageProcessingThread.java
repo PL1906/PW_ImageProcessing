@@ -8,9 +8,9 @@ public class ImageProcessingThread extends Thread
 	Semaphore progressLock;
 	private BufferedImage image;
 	private int startWidth, startHeight, width, height;
-	private MainFrame mainFrame;
+	private ImageProcessingFrame mainFrame;
 	
-	public ImageProcessingThread(BufferedImage image, MainFrame mainFrame, Semaphore progressLock, int startWidth, int startHeight, int width, int height)
+	public ImageProcessingThread(BufferedImage image, ImageProcessingFrame mainFrame, Semaphore progressLock, int startWidth, int startHeight, int width, int height)
 	{
 		this.image = image;
 		this.startWidth = startWidth;
