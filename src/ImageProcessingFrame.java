@@ -25,10 +25,9 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 	private BufferedImage image, processedImage;
 	private BufferedImage[] images;
 	private Semaphore progressLock;
-	private static int threadsNumber = 4;
+	private int threadsNumber = 4;
 	private File[] selectedFiles;
 
-	@SuppressWarnings("static-access")
 	public ImageProcessingFrame(File[] selectedFiles, int threadsNumber)
 	{
 		super("Programowanie wspolbiezne - Image processing");
@@ -164,9 +163,8 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 
 		return resizedImage;
 	}
-
-	@SuppressWarnings("finally")
-	public static List<Future<BufferedImage>> loadWithExecutor(File[] files)
+	
+	public List<Future<BufferedImage>> loadWithExecutor(File[] files)
 	{
 		ExecutorService service = Executors.newFixedThreadPool(threadsNumber);
 		List<ImageLoadingTask> tasks = new ArrayList<>(files.length);
@@ -183,10 +181,8 @@ public class ImageProcessingFrame extends JFrame implements Runnable
 		{
 			ex.printStackTrace();
 		}
-		finally
-		{
-			service.shutdown();
-			return results;
-		}
+
+		service.shutdown();
+		return results;
 	}
 }
